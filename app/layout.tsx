@@ -143,8 +143,8 @@ const jsonLd = {
       '@type': 'Offer',
       name: 'Starter Email Setup Package',
       description:
-        'Business email setup for 1–3 users with SPF, DKIM, DMARC and 30 days support.',
-      price: '249',
+        'Business email setup with SPF, DKIM, DMARC and 30 days support.',
+      price: '49',
       priceCurrency: 'GBP',
     },
     {
@@ -152,7 +152,7 @@ const jsonLd = {
       name: 'Professional Email Package',
       description:
         'Complete email setup and migration for up to 10 users including Google Workspace or Microsoft 365.',
-      price: '499',
+      price: '119',
       priceCurrency: 'GBP',
     },
     {
@@ -160,7 +160,7 @@ const jsonLd = {
       name: 'Business Email Package',
       description:
         'Full enterprise email infrastructure for up to 30 users with 90 days priority support.',
-      price: '899',
+      price: '249',
       priceCurrency: 'GBP',
     },
   ],

@@ -40,9 +40,10 @@ export function Navbar({
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+            {/* <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">T</span>
-            </div>
+            </div> */}
+            <img src="/icon.svg" alt={businessName} className="w-10 h-10" width={40} height={40}/>
             <span className={`font-bold text-lg hidden sm:inline ${textColor}`}>{businessName}</span>
           </a>
 

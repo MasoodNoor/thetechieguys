@@ -67,11 +67,11 @@ export function Pricing({
 
               {/* Price */}
               <div className="mb-6">
-                {tier.monthlyPrice ? (
+                {tier.price ? (
                   <div>
-                    <span className="text-4xl font-bold text-gray-900">{currency}{tier.monthlyPrice}</span>
-                    <span className="text-gray-600">/month</span>
-                    <p className="text-xs text-gray-500 mt-1">or {currency}{tier.annualPrice}/year</p>
+                    <span className="text-4xl font-bold text-gray-900 flex items-center justify-center">{currency}{tier.price}</span>
+                    {/* <span className="text-gray-600">/month</span> */}
+                    {/* <p className="text-xs text-gray-500 mt-1">or {currency}{tier.annualPrice}/year</p> */}
                   </div>
                 ) : (
                   <div>

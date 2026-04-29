@@ -29,7 +29,7 @@ export interface PricingTier {
   name: string;
   slug: string;
   description: string;
-  monthlyPrice: number | null;
+  price: number | null;
   annualPrice: number | null;
   bestFor: string;
   highlighted?: boolean;

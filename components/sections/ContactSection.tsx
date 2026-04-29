@@ -229,7 +229,7 @@ export function ContactSection({
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
-                We'll reply within {siteConfig.contact.responseTime.toLowerCase()}
+                We'll reply {siteConfig.contact.responseTime.toLowerCase()}
               </p>
             </form>
           </div>

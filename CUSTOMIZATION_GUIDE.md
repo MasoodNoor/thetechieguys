@@ -148,7 +148,7 @@ pricing: {
   tiers: [
     {
       name: 'Starter',
-      monthlyPrice: 99,
+      price: 99,
       annualPrice: 990,
       features: [
         { text: 'Feature name', included: true },
@@ -239,7 +239,7 @@ Available props (all components):
   id: 'tier-new',
   name: 'Tier Name',
   slug: 'tier-slug',
-  monthlyPrice: 299,
+  price: 299,
   annualPrice: 2990,
   highlighted: true,  // Makes it stand out
   bestFor: 'Target audience',
