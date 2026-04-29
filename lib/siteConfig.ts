@@ -185,8 +185,8 @@ export const siteConfig = {
       {
         id: 'testimonial-3',
         quote:
-          'Very helpful, extremely trustworthy and would highly recommend. Great communication aswell.',
-        author: 'Tom_Farley',
+          'Very helpful, extremely trustworthy and would highly recommend. Great communication as well.',
+        author: 'Luke H',
         role: 'Administrator',
         company: 'Business Support Manager',
         location: 'North West',
