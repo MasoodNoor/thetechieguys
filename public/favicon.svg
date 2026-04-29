@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#2563EB"/>
-  <text x="30" y="47" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">T</text>
-  <circle cx="48" cy="14" r="7" fill="#06B6D4"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><rect width="64" height="64" rx="12" fill="#2563EB"></rect><text x="30" y="47" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF" text-anchor="middle">T</text><circle cx="48" cy="14" r="7" fill="#06B6D4"></circle></svg>

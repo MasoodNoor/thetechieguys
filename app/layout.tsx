@@ -72,12 +72,15 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
-    images: [siteConfig.seo.ogImage],
+    images: [siteConfig.seo.ogImage] ,
   },
 
   // ── Icons ───────────────────────────────────────────────────────────────
   icons: {
     icon: [
+      {
+        url: '/favicon.ico', // The universal fallback
+      },
       {
         url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',

@@ -230,10 +230,10 @@ export const siteConfig = {
   // SEO
   seo: {
     defaultTitle:
-      'The Techie Guys | Business Email Setup & Google Workspace Specialists — UK',
+      'Business Email Setup & Google Workspace UK | The Techie Guys',
     defaultDescription:
-      'Professional business email setup, Google Workspace, Microsoft 365 & SPF/DKIM/DMARC configuration for UK small businesses. Fixed prices. 24–48hr turnaround. Free email audit — book today.',
+      'Expert Business Email setup & Google Workspace for UK small businesses. Fixed prices, 48hr turnaround & SPF/DKIM/DMARC config. Book your free email audit today!',
     baseUrl: 'https://thetechieguys.com',
-    ogImage: 'https://thetechieguys.com/og-image.png',
+    ogImage: 'https://thetechieguys.com/og-image.png alt="Business Email Setup & Google Workspace UK | The Techie Guys',
   },
 };
