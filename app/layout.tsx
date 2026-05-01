@@ -98,8 +98,8 @@ export const metadata: Metadata = {
   // },
   icons: {
     icon: [
-      { url: '/favicon.ico' }, // Universal Fallback
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' }, // For Google Search
+      { url: '/favicon.ico' }, // Universal fallback (incl. legacy)
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' }, // Google-friendly (multiple of 48)
       {
         url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',

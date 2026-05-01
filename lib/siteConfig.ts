@@ -234,6 +234,6 @@ export const siteConfig = {
     defaultDescription:
       'Expert Business Email setup & Google Workspace for UK small businesses. Fixed prices, 48hr turnaround & SPF/DKIM/DMARC config. Book your free email audit today!',
     baseUrl: 'https://thetechieguys.com',
-    ogImage: 'https://thetechieguys.com/og-image.png alt="Business Email Setup & Google Workspace UK | The Techie Guys',
+    ogImage: 'https://thetechieguys.com/og-image.png',
   },
 };
