@@ -232,7 +232,7 @@ export const siteConfig = {
     defaultTitle:
       'Business Email Setup & Google Workspace UK | The Techie Guys',
     defaultDescription:
-      'Expert Business Email setup & Google Workspace for UK small businesses. Fixed prices, 48hr turnaround & SPF/DKIM/DMARC config. Book your free email audit today!',
+      'Business email setup, Google Workspace & Microsoft 365 for UK small businesses. SPF/DKIM/DMARC, email migration, deliverability fixes. Fixed prices. Free audit.',
     baseUrl: 'https://thetechieguys.com',
     ogImage: 'https://thetechieguys.com/og-image.png',
   },
