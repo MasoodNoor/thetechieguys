@@ -98,8 +98,8 @@ export const metadata: Metadata = {
   // },
   icons: {
     icon: [
-      { url: '/favicon.ico' }, // Universal fallback (incl. legacy)
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' }, // Google-friendly (multiple of 48)
+      { url: '/icon.svg', type: 'image/svg+xml' },  
       {
         url: '/icon-light-32x32.png',
         media: '(prefers-color-scheme: light)',
@@ -108,7 +108,8 @@ export const metadata: Metadata = {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
       },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' }, // Universal fallback (incl. legacy)
+      
     ],
     apple: '/apple-icon.png',
   },
