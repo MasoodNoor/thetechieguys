@@ -4,6 +4,11 @@ import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { siteConfig } from '@/lib/siteConfig'
+import {
+  getFaqPageSchema,
+  getPricingOffersForSchema,
+  getReviewsForSchema,
+} from '@/lib/seo'
 import './globals.css'
 
 const _geist = Geist({ subsets: ['latin'] })
@@ -129,59 +134,41 @@ export const viewport: Viewport = {
 // ── JSON-LD Structured Data ────────────────────────────────────────────────
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'The Techie Guys',
-  url: 'https://thetechieguys.com',
-  logo: 'https://thetechieguys.com/icon.svg',
-  description:
-    'Professional business email setup, Google Workspace, Microsoft 365 and DNS configuration for UK small businesses. SPF, DKIM, DMARC specialists.',
-  areaServed: {
-    '@type': 'Country',
-    name: 'United Kingdom',
-  },
-  serviceType: [
-    'Business Email Setup',
-    'Google Workspace Setup',
-    'Microsoft 365 Setup',
-    'SPF DKIM DMARC Configuration',
-    'Email Migration',
-    'Email Deliverability Fix',
-    'DNS Configuration',
-    'Domain Management',
-  ],
-  priceRange: '££',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'customer support',
-    email: 'hello@thetechieguys.com',
-    availableLanguage: 'English',
-  },
-  sameAs: ['https://www.linkedin.com/company/thetechieguys/'],
-  offers: [
+  '@graph': [
     {
-      '@type': 'Offer',
-      name: 'Starter Email Setup Package',
-      description:
-        'Business email setup with SPF, DKIM, DMARC and 30 days support.',
-      price: '49',
-      priceCurrency: 'GBP',
+      '@type': 'ProfessionalService',
+      name: siteConfig.business.name,
+      url: siteConfig.seo.baseUrl,
+      logo: `${siteConfig.seo.baseUrl}/icon.svg`,
+      description: siteConfig.business.description,
+      areaServed: {
+        '@type': 'Country',
+        name: 'United Kingdom',
+      },
+      serviceType: siteConfig.services.items.map((s) => s.name),
+      priceRange: '££',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: siteConfig.business.email,
+        telephone: siteConfig.business.phone,
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'GB',
+        description: siteConfig.business.address,
+      },
+      sameAs: [
+        'https://www.linkedin.com/company/thetechieguys/',
+        siteConfig.business.social.facebook,
+        siteConfig.business.social.instagram,
+      ],
+      offers: getPricingOffersForSchema(),
+      ...getReviewsForSchema(),
     },
-    {
-      '@type': 'Offer',
-      name: 'Professional Email Package',
-      description:
-        'Complete email setup and migration for up to 10 users including Google Workspace or Microsoft 365.',
-      price: '119',
-      priceCurrency: 'GBP',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Business Email Package',
-      description:
-        'Full enterprise email infrastructure for up to 30 users with 90 days priority support.',
-      price: '249',
-      priceCurrency: 'GBP',
-    },
+    getFaqPageSchema(),
   ],
 }
 

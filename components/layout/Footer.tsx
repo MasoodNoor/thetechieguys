@@ -3,9 +3,9 @@
  * Displays company info, links, and contact details
  */
 
-import Link from 'next/link';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, MessageCircle, Facebook, Instagram } from 'lucide-react';
 import { siteConfig } from '@/lib/siteConfig';
+import { mainNavItems } from '@/lib/navigation';
 
 interface FooterProps {
   businessName?: string;
@@ -28,11 +28,6 @@ export function Footer({
   backgroundColor = 'bg-gray-900',
   textColor = 'text-gray-100',
 }: FooterProps) {
-  const navItems = [
-    { id: 'home', label: 'Home', href: '/' },
-    { id: 'services', label: 'Services', href: '/services' },
-    { id: 'about', label: 'About', href: '/about' },
-  ]
   const currentYear = new Date().getFullYear();
 
   return (
@@ -53,26 +48,16 @@ export function Footer({
             <div>
               <h4 className="font-bold mb-6">Navigation</h4>
               <ul className="space-y-3">
-                <li>
-                  <a href="#home" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#packages" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
-                    Packages
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
-                    Contact
-                  </a>
-                </li>
+                {mainNavItems.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={item.href}
+                      className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -115,6 +100,28 @@ export function Footer({
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
                 </a>
+                {siteConfig.business.social?.facebook && (
+                  <a
+                    href={siteConfig.business.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-blue-400 text-sm transition-colors"
+                  >
+                    <Facebook className="w-4 h-4" />
+                    Facebook
+                  </a>
+                )}
+                {siteConfig.business.social?.instagram && (
+                  <a
+                    href={siteConfig.business.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-pink-400 text-sm transition-colors"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    Instagram
+                  </a>
+                )}
               </div>
             </div>
           </div>

@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/siteConfig';
+import { mainNavItems } from '@/lib/navigation';
 
 interface NavbarProps {
   businessName?: string;
@@ -26,12 +27,7 @@ export function Navbar({
   backgroundColor = 'bg-white',
   textColor = 'text-gray-900',
 }: NavbarProps) {
-  const navItems = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'about', label: 'About', href: '#about' },
-    { id: 'packages', label: 'Packages', href: '#packages' },
-    { id: 'contact', label: 'Contact', href: '#contact' },
-  ]
+  const navItems = mainNavItems
   const [isOpen, setIsOpen] = useState(false);
 
   return (

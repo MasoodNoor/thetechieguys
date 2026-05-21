@@ -7,6 +7,11 @@
 const BUSINESS_PHONE = '+92 300 8929640';
 const PHONE_DIGITS = BUSINESS_PHONE.replace(/\D/g, '');
 
+const SOCIAL_LINKS = {
+  facebook: 'https://www.facebook.com/TheTechieGuysHQ',
+  instagram: 'https://www.instagram.com/thetechieguys/',
+} as const;
+
 export const siteConfig = {
   // Business Info
   business: {
@@ -17,7 +22,8 @@ export const siteConfig = {
     email: 'hello@thetechieguys.com',
     phone: BUSINESS_PHONE,
     whatsapp: BUSINESS_PHONE,
-    address: 'Serving UK Businesses',
+    address: 'Remote support for UK small businesses (worldwide delivery)',
+    social: SOCIAL_LINKS,
   },
 
   // Colors
@@ -87,6 +93,172 @@ export const siteConfig = {
     ],
   },
 
+  // Services (Sanity-ready: same shape as lib/types Service)
+  services: {
+    id: 'services',
+    title: 'What We Do',
+    items: [
+      {
+        id: 'service-gws',
+        name: 'Google Workspace Setup',
+        slug: 'google-workspace-setup',
+        shortDescription:
+          'Professional Gmail and Google Workspace for your team — configured correctly from day one.',
+        description:
+          'Full Google Workspace setup including MX records, user accounts, and security settings for UK businesses.',
+        icon: 'Mail',
+        benefits: [
+          'MX & DNS configured correctly',
+          'User accounts and aliases set up',
+          'Mobile and desktop ready',
+        ],
+        problemStatement: 'Still on personal Gmail or a messy old host?',
+        process: ['Audit current setup', 'Configure DNS & MX', 'Create users and test delivery'],
+        outcomes: ['Professional @yourdomain email', 'Reliable delivery', 'Team collaboration ready'],
+      },
+      {
+        id: 'service-m365',
+        name: 'Microsoft 365 Setup',
+        slug: 'microsoft-365-setup',
+        shortDescription:
+          'Outlook and Microsoft 365 configured for small teams — without the Microsoft confusion.',
+        description:
+          'Microsoft 365 tenant setup, email DNS, and user configuration for UK small businesses.',
+        icon: 'Building2',
+        benefits: [
+          'Tenant and domain verified',
+          'Outlook on all devices',
+          'Security defaults applied',
+        ],
+        problemStatement: 'Microsoft 365 feels overwhelming to set up alone?',
+        process: ['Domain verification', 'DNS & MX setup', 'User provisioning and testing'],
+        outcomes: ['Business Outlook addresses', 'Secure tenant', 'Smooth team onboarding'],
+      },
+      {
+        id: 'service-spf-dkim',
+        name: 'SPF, DKIM & DMARC',
+        slug: 'spf-dkim-dmarc',
+        shortDescription:
+          'Stop your emails landing in spam — we fix authentication records properly.',
+        description:
+          'SPF, DKIM, and DMARC configuration and alignment for maximum deliverability.',
+        icon: 'Shield',
+        benefits: [
+          'Authentication records fixed',
+          'DMARC reporting explained',
+          'Spam folder issues resolved',
+        ],
+        problemStatement: 'Emails going to spam or marked as unauthenticated?',
+        process: ['Audit DNS records', 'Fix SPF/DKIM/DMARC', 'Test and monitor'],
+        outcomes: ['Inbox placement improved', 'Brand protection', 'Clear reporting'],
+      },
+      {
+        id: 'service-migration',
+        name: 'Email Migration',
+        slug: 'email-migration',
+        shortDescription:
+          'Move from old email host or IMAP to Google Workspace or Microsoft 365 — zero drama.',
+        description:
+          'Mailbox migration with minimal downtime for UK businesses switching providers.',
+        icon: 'ArrowRightLeft',
+        benefits: [
+          'Emails and folders preserved',
+          'Zero-downtime planning',
+          'Post-migration testing',
+        ],
+        problemStatement: 'Afraid of losing emails when switching providers?',
+        process: ['Pre-migration audit', 'Staged mailbox move', 'DNS cutover and verification'],
+        outcomes: ['All mail migrated', 'Team keeps working', 'Old host switched off safely'],
+      },
+      {
+        id: 'service-deliverability',
+        name: 'Deliverability Rescue',
+        slug: 'email-deliverability',
+        shortDescription:
+          'Emails going to spam? We diagnose and fix reputation, DNS, and configuration issues.',
+        description:
+          'Deliverability audit and remediation for UK businesses losing leads to spam folders.',
+        icon: 'TrendingUp',
+        benefits: [
+          'Full DNS & reputation audit',
+          'Blacklist and auth fixes',
+          'Before/after testing',
+        ],
+        problemStatement: 'Losing leads because emails never reach the inbox?',
+        process: ['Deliverability audit', 'Fix root causes', 'Monitor improvement'],
+        outcomes: ['Inbox placement restored', 'Fewer spam reports', 'Confidence to scale sending'],
+      },
+      {
+        id: 'service-dns',
+        name: 'DNS & Domain Management',
+        slug: 'dns-domain-management',
+        shortDescription:
+          'Domain DNS, records, and registrar fixes — explained in plain English.',
+        description:
+          'DNS configuration and domain troubleshooting for business email and websites.',
+        icon: 'Globe',
+        benefits: [
+          'MX, TXT, CNAME records correct',
+          'Registrar access sorted',
+          'Documentation handover',
+        ],
+        problemStatement: 'DNS records look like a foreign language?',
+        process: ['Audit domain & DNS', 'Apply fixes', 'Document for your team'],
+        outcomes: ['Records correct and tested', 'You understand what we changed', 'Fewer future outages'],
+      },
+    ],
+  },
+
+  // FAQ (Sanity-ready: same shape as lib/types FAQItem)
+  faq: {
+    id: 'faq',
+    title: 'Frequently Asked Questions',
+    items: [
+      {
+        id: 'faq-1',
+        question: 'How long does business email setup take?',
+        answer:
+          'Most setups are completed within 24–48 hours. Migrations with many mailboxes may take slightly longer — we will give you a clear timeline before we start.',
+      },
+      {
+        id: 'faq-2',
+        question: 'Do you work with UK businesses only?',
+        answer:
+          'We specialise in UK small businesses — we understand UK registrars, common hosts, and how UK teams use email day to day. We also support international clients who need UK-style professional email setup.',
+      },
+      {
+        id: 'faq-3',
+        question: 'Can you fix emails going to spam?',
+        answer:
+          'Yes. We audit SPF, DKIM, DMARC, MX records, and sending reputation, then fix the root cause. Many clients see improvement within 24–48 hours of DNS changes propagating.',
+      },
+      {
+        id: 'faq-4',
+        question: 'Google Workspace or Microsoft 365 — which should I choose?',
+        answer:
+          'Google Workspace suits teams that live in Gmail and Google Drive. Microsoft 365 suits teams already using Outlook and Office. We will recommend the best fit based on how your team already works.',
+      },
+      {
+        id: 'faq-5',
+        question: 'Will my team lose emails during migration?',
+        answer:
+          'No — we plan migrations to preserve mailboxes, folders, and history. We test before and after cutover so your team keeps working throughout.',
+      },
+      {
+        id: 'faq-6',
+        question: 'What is included in the free email audit?',
+        answer:
+          'We check your SPF, DKIM, DMARC, MX records, and basic deliverability — then send you a plain-English report on what is wrong and what we would fix. No obligation to buy.',
+      },
+      {
+        id: 'faq-7',
+        question: 'Are your prices fixed?',
+        answer:
+          'Yes. Our packages are one-time fixed prices quoted upfront. You know exactly what you are paying before we start — no hourly surprises.',
+      },
+    ],
+  },
+
   // Pricing Packages
   pricing: {
     id: 'packages',
@@ -100,7 +272,7 @@ export const siteConfig = {
         name: 'Starter',
         slug: 'starter',
         description: 'For solo traders and small teams getting professional email for the first time',
-        price: 49,
+        price: 29,
         annualPrice: null,
         bestFor: 'Solo traders & startups',
         highlighted: false,
@@ -119,7 +291,7 @@ export const siteConfig = {
         name: 'Professional',
         slug: 'professional',
         description: 'Complete email infrastructure for growing teams — includes migration',
-        price: 119,
+        price: 89,
         annualPrice: null,
         bestFor: 'Growing teams (up to 10 users)',
         highlighted: true,
@@ -139,7 +311,7 @@ export const siteConfig = {
         name: 'Business',
         slug: 'business',
         description: 'Full enterprise-grade email infrastructure for established businesses',
-        price: 249,
+        price: 149,
         annualPrice: null,
         bestFor: 'Established businesses (up to 30 users)',
         highlighted: false,
@@ -168,7 +340,7 @@ export const siteConfig = {
           'I recently had the pleasure of using this service and I couldn\'t be more satisfied. The response time was incredibly quick, addressing all my needs almost immediately. The team was not only efficient but also exceptionally friendly and polite, making the entire experience pleasant and stress-free. The quality of work they delivered was outstanding and truly exceeded my expectations. To top it all off, the value for money was incredible. I highly recommend this service to anyone in need of reliable and professional assistance. Five stars all the way!',
         author: 'Paul Tomlin',
         role: 'Owner',
-        company: 'stokedrivingschool.com - Stoke Driving School',
+        company: 'https://stokedrivingschool.com - Stoke Driving School',
         location: 'Stoke-on-Trent, United Kingdom',
         rating: 5,
       },
@@ -202,6 +374,20 @@ export const siteConfig = {
     description:
       'Not sure if your email setup is correct? We will check your SPF, DKIM, DMARC, and deliverability for free — and tell you exactly what needs fixing.',
     responseTime: 'Within 2 Hours',
+    social: [
+      {
+        id: 'social-facebook',
+        label: 'Facebook',
+        href: SOCIAL_LINKS.facebook,
+        icon: 'Facebook' as const,
+      },
+      {
+        id: 'social-instagram',
+        label: 'Instagram',
+        href: SOCIAL_LINKS.instagram,
+        icon: 'Instagram' as const,
+      },
+    ],
     methods: [
       {
         id: 'contact-whatsapp',
@@ -234,6 +420,7 @@ export const siteConfig = {
     defaultDescription:
       'Business email setup, Google Workspace & Microsoft 365 for UK small businesses. SPF/DKIM/DMARC, email migration, deliverability fixes. Fixed prices. Free audit.',
     baseUrl: 'https://thetechieguys.com',
+    // Export public/og-image.png from public/og-image.svg after layout changes (1200×630)
     ogImage: 'https://thetechieguys.com/og-image.png',
   },
 };

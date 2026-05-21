@@ -3,9 +3,8 @@
  * Displays all services as cards
  */
 
-import Link from 'next/link';
+import type { ComponentType } from 'react';
 import * as Icons from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/siteConfig';
 import { Service } from '@/lib/types';
 
@@ -15,6 +14,8 @@ interface ServicesProps {
   services?: Service[];
   backgroundColor?: string;
   accentColor?: string;
+  /** Until Sanity service pages exist, cards link here (default: contact) */
+  cardHref?: string;
 }
 
 export function Services({
@@ -23,6 +24,7 @@ export function Services({
   services = siteConfig.services.items,
   backgroundColor = 'bg-gray-50',
   accentColor = 'text-blue-600',
+  cardHref = '#contact',
 }: ServicesProps) {
   return (
     <section id={id} className={`${backgroundColor} py-16 md:py-24`}>
@@ -36,12 +38,12 @@ export function Services({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => {
             // Get the icon component dynamically
-            const IconComponent = Icons[service.icon as keyof typeof Icons] as React.ComponentType<{
+            const IconComponent = Icons[service.icon as keyof typeof Icons] as ComponentType<{
               className?: string;
             }>;
 
             return (
-              <Link key={service.id} href={`/services/${service.slug}`}>
+              <a key={service.id} href={cardHref}>
                 <div className="h-full bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer">
                   {/* Icon */}
                   {IconComponent && (
@@ -68,10 +70,10 @@ export function Services({
 
                   {/* Learn More Link */}
                   <div className="text-blue-600 font-medium text-sm hover:text-blue-700">
-                    Learn More →
+                    Get in touch →
                   </div>
                 </div>
-              </Link>
+              </a>
             );
           })}
         </div>

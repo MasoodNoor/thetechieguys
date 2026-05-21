@@ -4,8 +4,14 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Facebook, Instagram, type LucideIcon } from 'lucide-react'
 import { submitContactForm } from '@/app/actions/contact'
 import { siteConfig } from '@/lib/siteConfig'
+
+const socialIcons: Record<string, LucideIcon> = {
+  Facebook,
+  Instagram,
+}
 
 interface ContactSectionProps {
   id?: string
@@ -110,6 +116,29 @@ export function ContactSection({
                     Chat Now
                     <span className="text-sm">→</span>
                   </a>
+                </div>
+              )}
+
+              {siteConfig.contact.social.length > 0 && (
+                <div className="p-4 rounded-lg border border-transparent hover:border-primary/20 hover:bg-primary/5 transition-all duration-300">
+                  <p className="text-sm font-semibold text-muted-foreground mb-3">Social</p>
+                  <div className="flex flex-wrap gap-3">
+                    {siteConfig.contact.social.map((link) => {
+                      const Icon = socialIcons[link.icon]
+                      return (
+                        <a
+                          key={link.id}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-background px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:border-primary/40 hover:bg-primary/5"
+                        >
+                          {Icon && <Icon className="h-5 w-5 shrink-0" aria-hidden />}
+                          {link.label}
+                        </a>
+                      )
+                    })}
+                  </div>
                 </div>
               )}
 
