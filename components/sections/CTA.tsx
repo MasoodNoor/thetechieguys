@@ -20,12 +20,12 @@ interface CTAProps {
 
 export function CTA({
   id = 'cta',
-  headline = siteConfig.cta.ctaHeadline,
-  subheadline = siteConfig.cta.ctaSubheadline,
-  primaryCta = siteConfig.cta.primaryButton,
-  primaryHref = '/contact',
-  secondaryCta = 'Learn More',
-  secondaryHref = '/services',
+  headline = 'Ready to fix your business email?',
+  subheadline = 'Get a free audit and a clear plan — no jargon, no surprises.',
+  primaryCta = siteConfig.hero.ctaPrimary,
+  primaryHref = siteConfig.hero.ctaPrimaryHref,
+  secondaryCta = siteConfig.hero.ctaSecondary,
+  secondaryHref = siteConfig.hero.ctaSecondaryHref,
   backgroundColor = 'bg-blue-600',
   textColor = 'text-white',
 }: CTAProps) {

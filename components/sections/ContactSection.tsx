@@ -1,12 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Facebook, Instagram, type LucideIcon } from 'lucide-react'
 import { submitContactForm } from '@/app/actions/contact'
 import { siteConfig } from '@/lib/siteConfig'
+import {
+  buildPackageEnquiryMessage,
+  findTierBySlug,
+  PACKAGE_QUERY_KEY,
+} from '@/lib/package-enquiry'
 
 const socialIcons: Record<string, LucideIcon> = {
   Facebook,
@@ -30,6 +35,40 @@ export function ContactSection({
 }: ContactSectionProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null)
+  const [message, setMessage] = useState('')
+
+  const applyPackageFromUrl = useCallback(() => {
+    const slug = new URLSearchParams(window.location.search).get(PACKAGE_QUERY_KEY)
+    if (!slug) return
+
+    const tier = findTierBySlug(slug)
+    if (!tier) return
+
+    setSelectedPackage(tier.name)
+    setMessage(buildPackageEnquiryMessage(tier, siteConfig.pricing.currency))
+  }, [])
+
+  useEffect(() => {
+    applyPackageFromUrl()
+
+    const onPackageSelected = (event: Event) => {
+      const slug = (event as CustomEvent<{ slug: string }>).detail?.slug
+      if (!slug) return
+      const tier = findTierBySlug(slug)
+      if (!tier) return
+      setSelectedPackage(tier.name)
+      setMessage(buildPackageEnquiryMessage(tier, siteConfig.pricing.currency))
+    }
+
+    window.addEventListener('package-selected', onPackageSelected)
+    window.addEventListener('popstate', applyPackageFromUrl)
+
+    return () => {
+      window.removeEventListener('package-selected', onPackageSelected)
+      window.removeEventListener('popstate', applyPackageFromUrl)
+    }
+  }, [applyPackageFromUrl])
 
   async function handleSubmit(formData: FormData) {
     setIsLoading(true)
@@ -40,6 +79,8 @@ export function ContactSection({
         // Reset form and clear status after 5 seconds
         const form = document.querySelector('form') as HTMLFormElement
         form?.reset()
+        setMessage('')
+        setSelectedPackage(null)
         setTimeout(() => setSubmitStatus('idle'), 5000)
       } else {
         setSubmitStatus('error')
@@ -166,7 +207,18 @@ export function ContactSection({
 
           {/* Contact Form - Right Side */}
           <div className="animate-fade-in-right">
-            <form action={handleSubmit} className="space-y-5 bg-white/50 dark:bg-slate-900/30 backdrop-blur-sm p-8 rounded-2xl border border-primary/10 shadow-lg">
+            <form action={handleSubmit} className="space-y-5 bg-card/80 backdrop-blur-sm p-8 rounded-2xl border border-border shadow-lg motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-xl">
+              {selectedPackage && (
+                <div className="rounded-lg border border-primary/25 bg-primary/10 px-4 py-3 text-sm">
+                  <span className="font-semibold text-foreground">Selected package: </span>
+                  <span className="text-primary">{selectedPackage}</span>
+                </div>
+              )}
+
+              {selectedPackage && (
+                <input type="hidden" name="package" value={selectedPackage} />
+              )}
+
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2">
                   Your Name
@@ -217,6 +269,8 @@ export function ContactSection({
                   id="message"
                   name="message"
                   required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   placeholder="Tell us what you need. The more detail, the better..."
                   disabled={isLoading}
                   rows={5}

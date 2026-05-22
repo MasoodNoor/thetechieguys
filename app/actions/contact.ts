@@ -70,6 +70,7 @@ export async function submitContactForm(formData: FormData) {
   const email = formData.get('email');
   const company = formData.get('company');
   const service = formData.get('service');
+  const packageInterest = formData.get('package');
   const message = formData.get('message');
 
   if (!name || !email || !message) {
@@ -88,6 +89,7 @@ export async function submitContactForm(formData: FormData) {
         <p><strong>Email:</strong> ${email}</p>
         ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
         ${service ? `<p><strong>Service:</strong> ${service}</p>` : ''}
+        ${packageInterest ? `<p><strong>Package:</strong> ${packageInterest}</p>` : ''}
         <p><strong>Message:</strong></p>
         <p>${message}</p>
         <p><strong>Reply to:</strong> ${email}</p>

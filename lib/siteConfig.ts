@@ -39,7 +39,9 @@ export const siteConfig = {
     subheadline:
       'Google Workspace setup, Microsoft 365, SPF/DKIM/DMARC configuration, and email migration for UK small businesses. Fixed prices. Done in 24–48 hours.',
     ctaPrimary: 'Get a Free Email Audit',
+    ctaPrimaryHref: '#contact',
     ctaSecondary: 'See Packages',
+    ctaSecondaryHref: '#packages',
     badge: 'Trusted by 50+ UK Businesses',
   },
 

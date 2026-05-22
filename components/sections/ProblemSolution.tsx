@@ -3,7 +3,6 @@
  * Shows common problems and how they're solved
  */
 
-import { siteConfig } from '@/lib/siteConfig';
 import { ProblemSolutionCard as ProblemSolutionCardType } from '@/lib/types';
 import { ArrowRight } from 'lucide-react';
 
@@ -16,9 +15,9 @@ interface ProblemSolutionProps {
 }
 
 export function ProblemSolution({
-  id = siteConfig.problemSolution.id,
-  title = siteConfig.problemSolution.title,
-  cards = siteConfig.problemSolution.cards,
+  id = 'problem-solution',
+  title = 'Problems We Solve',
+  cards = [] as ProblemSolutionCardType[],
   backgroundColor = 'bg-white',
   accentColor = 'bg-blue-600',
 }: ProblemSolutionProps) {

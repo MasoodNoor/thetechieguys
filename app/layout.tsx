@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { Providers } from '@/components/providers'
+import { WhatsAppFab } from '@/components/layout/WhatsAppFab'
 import { siteConfig } from '@/lib/siteConfig'
 import {
   getFaqPageSchema,
@@ -178,17 +180,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="bg-background">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-background text-foreground">
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="font-sans bg-background text-foreground">
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+          <WhatsAppFab />
+        </Providers>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -4,7 +4,6 @@
  */
 
 import Link from 'next/link';
-import { siteConfig } from '@/lib/siteConfig';
 import { CaseStudy } from '@/lib/types';
 
 interface CaseStudiesProps {
@@ -16,9 +15,9 @@ interface CaseStudiesProps {
 }
 
 export function CaseStudies({
-  id = siteConfig.caseStudies.id,
-  title = siteConfig.caseStudies.title,
-  caseStudies = siteConfig.caseStudies.items,
+  id = 'case-studies',
+  title = 'Case Studies',
+  caseStudies = [] as CaseStudy[],
   backgroundColor = 'bg-gray-50',
   accentColor = 'text-blue-600',
 }: CaseStudiesProps) {

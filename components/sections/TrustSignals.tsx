@@ -4,7 +4,6 @@
  */
 
 import * as Icons from 'lucide-react';
-import { siteConfig } from '@/lib/siteConfig';
 import { TrustSignal } from '@/lib/types';
 
 interface TrustSignalsProps {
@@ -16,9 +15,9 @@ interface TrustSignalsProps {
 }
 
 export function TrustSignals({
-  id = siteConfig.trustSignals.id,
-  title = siteConfig.trustSignals.title,
-  signals = siteConfig.trustSignals.signals,
+  id = 'trust-signals',
+  title = 'Why Businesses Trust Us',
+  signals = [] as TrustSignal[],
   backgroundColor = 'bg-gray-50',
   accentColor = 'text-blue-600',
 }: TrustSignalsProps) {
